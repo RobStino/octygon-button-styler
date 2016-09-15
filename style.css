@@ -219,41 +219,6 @@
 	height: 100%;
 }
 
-/*Double Border Button Styles */
-.et_pb_button.oct-btn-double-border {
-	/*position: relative;	*/
-}
-.et_pb_button.oct-btn-double-border:before {
-	content: "";
-	display: block;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0%;
-	left: 0%;
-	border: inherit;
-	/*border-color: transparent;*/
-	border-radius: inherit;
-	-webkit-transition: inherit;
-	-moz-transition: inherit;
-	-ms-transition: inherit;
-	-0-transition: inherit;
-	transition: inherit;
-}
-.et_pb_button.oct-btn-double-border:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	width: calc( 100% + 20px );
-	height: calc( 100% + 20px );
-	top: -11px;
-	left: -11px;;
-	border: inherit;
-	border-color: transparent;
-	border-radius: inherit;
-}
-
-
 /*Bounce, Wobble etc. Button Styles*/
 .et_pb_button.oct_btn_wiggle {
 
@@ -557,59 +522,4 @@
 		-ms-transform: scale(1.1);
 		transform: scale(1.1);
     }
-}
-
-
-/*3D Button Styles*/
-.et_pb_button.oct-btn-3d-1 {
-	-webkit-box-shadow: 0 8px 0 #bbbbbb, 0 8px 3px rgba(0, 0, 0, 0.2);
-     box-shadow: 0 8px 0 #bbbbbb, 0 8px 3px rgba(0, 0, 0, 0.2); 
-     z-index: 100;
-}
-.et_pb_button.oct-btn-3d-1:before {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background-color: inherit;
-	top: 7px;
-	left: -1px;
-	border-radius: inherit;
-	border: inherit;
-	z-index: 90;
-}
-
-/*Ripple Button Classes*/
-.et_pb_button.oct-btn-ripple-1{
-	position: relative;
-}
-.et_pb_button.oct-btn-ripple-1:before {
-	content: "";
-	display: block;
-	position: absolute;
-	width: 110%;
-	height: 110%;
-	left: 0;
-	top: 0;
-	background-color: red;
-}
-.et_pb_button.oct-btn-ripple-1:before:hover {
-}
-
-
-
-/*Click Styles*/
-.et_pb_button.oct-btn-click-1 {
-	-webkit-transition: all 0ms ease;
-	-moz-transition: all 0ms ease;
-	-ms-transition: all 0ms ease;
-	-o-transition: all 0ms ease;
-	transition: all 0ms ease;
-}
-.et_pb_button.oct-btn-click-1:focus {
-	-moz-transform: translateY(2px);
-	-webkit-transform: translateY(2px);
-	-o-transform: translateY(2px);
-	-ms-transform: translateY(2px);
-	transform: translateY(2px);
 }
