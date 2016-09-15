@@ -59,6 +59,14 @@ function oct_customize_register( $wp_customize ) {
 			'transport'  => 'refresh',
 		)
 	);
+	$wp_customize->add_setting( 'oct_btn_other_styles',
+		array(
+			'type'       => 'option',
+			'capability' => 'edit_theme_options',
+			'default'    => 'oct_btn_other_none',
+			'transport'  => 'refresh',
+		)
+	);
 	$wp_customize->add_control(
 		'oct_btn_grow_styles',
 		array(
@@ -129,6 +137,23 @@ function oct_customize_register( $wp_customize ) {
 			),
 		)
 	);
+	$wp_customize->add_control(
+		'oct_btn_other_styles',
+		array(
+			'priority' => 20,
+			'section'  => 'et_divi_buttons_hover',
+			'settings' => 'oct_btn_other_styles',
+			'label'    => __( 'Button Other Styles', 'oct' ),
+			'type'     => 'radio',
+			'choices'  => array(
+				'oct_btn_other_none'   => __( 'None' ),
+				'oct_btn_wiggle'   => __( 'Wiggle' ),
+				'oct_btn_pulse'  => __( 'Pulse' ),
+				'oct_btn_shiver'    => __( 'Shiver' ),
+				'oct_btn_bounce' => __( 'Bounce' ),
+			),
+		)
+	);
 }
 add_action( 'customize_register', 'oct_customize_register' );
 
@@ -142,6 +167,7 @@ function oct_customize_output() {
 	$shrink_class = get_option( 'oct_btn_shrink_styles' );
 	$shadow_class = get_option( 'oct_btn_shadow_styles' );
 	$slide_class  = get_option( 'oct_btn_slide_styles' );
+	$other_class  = get_option( 'oct_btn_other_styles' );
 
 	if ( 'oct_btn_grow_none' === $grow_class ) {
 		$grow_class = '';
@@ -159,7 +185,11 @@ function oct_customize_output() {
 		$slide_class = '';
 	}
 
-	$button_classes = implode( ' ', array( $grow_class, $shrink_class, $shadow_class, $slide_class ) );
+	if ( 'oct_btn_other_styles' === $other_class ) {
+		$other_class = '';
+	}
+
+	$button_classes = implode( ' ', array( $grow_class, $shrink_class, $shadow_class, $slide_class, $other_class ) );
 	?>
 	<script type="text/javascript">
 		jQuery( document ).ready( function( $ ) {
